@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Praneeth Reddy · Portfolio
 
-## Getting Started
+Personal portfolio of a Java backend engineer, built with Next.js and three.js.
 
-First, run the development server:
+**Live site:** https://praneeth-portfolio-silk.vercel.app
+
+Each section has its own interactive visual, tied to the work it describes:
+
+- **Hero:** a 3D service graph of a banking request path (client → REST → gRPC → Infinispan cache → PostgreSQL). Request packets flow through it, and most of them stop at the cache.
+- **Experience:** a particle sculpture that re-forms for each achievement as you scroll: a ring of API pillars, a gRPC stream, the cache layer, a 90% coverage gauge, a regression test grid and stacked containers.
+- **Projects:** a playable demo of the Payment Retry Engine. Drop a response or take the bank down, then watch idempotency keys, the outbox, exponential backoff and the dead-letter queue respond.
+- **Skills:** a draggable 3D tag sphere.
+- **Contact:** a dotted globe centred on Bengaluru.
+
+## Stack
+
+- Next.js 15 (App Router, every page prerendered as static), React 19, TypeScript
+- three.js through React Three Fiber and drei
+- Tailwind CSS 4
+- Lenis for smooth scrolling
+- Deployed on Vercel
+
+## Run locally
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # production build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Requires Node 18.18 or newer.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Where things live
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Path | What it holds |
+| --- | --- |
+| `lib/content.ts` | All text on the site: profile, experience, projects, skills, education |
+| `components/hero/`, `components/graph/` | Hero copy and the 3D service graph |
+| `components/experience/` | Scroll-pinned particle sculpture and its shapes |
+| `components/projects/` | Payment Retry Engine demo and project cards |
+| `components/skills/`, `components/contact/` | Tag sphere, globe, contact links |
+| `app/` | Page layout, favicon, link-preview image, 404 page |
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+All 3D scenes pause when they are off-screen and fall back to still frames for visitors who prefer reduced motion.
